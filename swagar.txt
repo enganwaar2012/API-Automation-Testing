@@ -1,0 +1,107 @@
+
+//Swagger notes
+API: GET /api/v1/Authors
+Test Case1: response code should be 200 
+ Expected Result: 200 
+  Actual Result: 200 
+  Status: Pass
+
+Test Case2: response value should be  OK
+ Expected Result:  OK
+  Actual Result:  OK
+  Status: Pass
+
+Test Case3: check inside response body contain, id)
+ Expected Result: respone body contains objects(id)) 
+ Actual Result: respone body contains objects(id)) 
+ Status: Pass
+
+Test Case4: check inside response body contain idBook
+ Expected Result: respone body contains objects(idBook) 
+ Actual Result: respone body contains objects(idBook)
+ Status: Pass
+
+Test Case5: check inside response body contain firstName
+ Expected Result: respone body contains objects(firstName) 
+ Actual Result: respone body contains objects(firstName)
+ Status: Pass
+
+Test Case6: check inside response body contain lastName
+ Expected Result: respone body contains objects(lastName) 
+ Actual Result: respone body contains objects(lastName)
+ Status: Pass
+
+Test Case7: the first object in response body contain property id =1
+ Expected Result: the first object in response body contain property id =1
+ Actual Result: the first object in response body contain property id =1
+ Status: Pass
+
+
+
+
+
+
+
+
+API: POST /api/v1/Authors
+Test Case1: check code 201 created
+ Expected Result: code 201
+ Actual Result: code200
+ Status: Fail 
+
+Test Case2: check body response contain the added new author with(firstname)
+ Expected Result: body response contain the added new author with(firstname)
+ Actual Result: body response contain the added new author with(firstname)
+ Status: PASS
+
+Test Case3: check body response contain the added new author with(lastname)
+ Expected Result: body response contain the added new author with(lastname)
+ Actual Result: body response contain the added new author with(lastname)
+ Status: PASS
+
+Test Case4: check  response code status if firstName and lastName missed 
+ Expected Result: 400 bad request
+ Actual Result: 400 bad request
+ Status: Fail
+ 
+
+
+
+
+API:GET /api/v1/Authors/authors/books/{idBook=1}
+ Test Case1: check all returned results in response body should contain  entered idBook  
+ Expected Result: all returned results in response body should contain  entered idBook
+ Actual Result: all returned results in response body should contain  entered idBook
+ Status: pass
+
+API:GET /api/v1/Authors/authors/books/{idBook=2}
+ Test Case1: check all returned results in response body should contain  entered idBook  
+ Expected Result: all returned results in response body should contain  entered idBook
+ Actual Result: all returned results in response body should contain  entered idBook
+ Status: pass
+
+API:GET /api/v1/Authors/authors/books/{idBook=3}
+ Test Case1: check all returned results in response body should contain  entered idBook  
+ Expected Result: all returned results in response body should contain  entered idBook
+ Actual Result: all returned results in response body should contain  entered idBook
+ Status: pass
+
+
+
+
+
+API:PUT /api/v1/Authors/{id}
+ Test Case1: check Author's data updated .  
+ Expected Result: Author's data updated successfully
+ Actual Result: Author's data updated successfully
+ Status: pass
+
+
+
+API:GET /api/v1/Authors/{id}
+ Test Case1: check the pdated Authoer 's data  .  
+ Expected Result: Author's data updated successfully
+ Actual Result: Author's data not updated
+ Status: pass
+
+

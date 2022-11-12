@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "90081774-1dab-43c3-853a-b48b8e75b1e5",
+		"name": "fakerest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24123067"
+	},
+	"item": [
+		{
+			"name": "GET Authors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Test response code ,status \r",
+							"pm.test(\"Check response code\",function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"});\r",
+							"pm.test(\"Check response status\",function(){\r",
+							"     pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"// Test response body contain id,idbook,firstName ,lastName\r",
+							"var resBody=pm.response.json()[0];\r",
+							"console.log(resBody)\r",
+							"pm.test(\"check response body contain id \",function(){\r",
+							"     pm.expect(resBody).to.have.property(\"id\")\r",
+							"});\r",
+							"pm.test(\"check response body contain idBook \",function(){\r",
+							"     pm.expect(resBody).to.have.property(\"idBook\")\r",
+							"});\r",
+							"pm.test(\"check response body contain firstName \",function(){\r",
+							"     pm.expect(resBody).to.have.property(\"firstName\")\r",
+							"});\r",
+							"pm.test(\"check response body contain lastName \",function(){\r",
+							"     pm.expect(resBody).to.have.property(\"lastName\")\r",
+							"});\r",
+							"// Test first object in response body contain id =1\r",
+							"pm.test(\"check first object has id =1 \",function(){\r",
+							"     pm.expect(resBody.id).to.equal(1)\r",
+							"});\r",
+							"console.log(resBody.id)\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+					"protocol": "http",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creat Author1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Test response code ,status\r",
+							"pm.test(\"Check response code\",function(){\r",
+							"    pm.expect(pm.response.code).to.eql(201)\r",
+							"});\r",
+							"pm.test(\"Check response code\",function(){\r",
+							"    pm.expect(pm.response.status).to.eql(\"Created\")\r",
+							"});\r",
+							"//check body response\r",
+							"pm.test(\"check response body contain firstName \",function(){\r",
+							"     pm.expect(pm.response.json().firstName).to.eqls(\"Hamza\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check response body contain lastName \",function(){\r",
+							"     pm.expect(pm.response.json().lastName).to.eqls(\"Mohamed\")\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"idBook\":0,\r\n  \"firstName\": \"Hamza\",\r\n  \"lastName\": \"Mohamed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+					"protocol": "http",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creat Author2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"//check  response code status if firstName and lastName missed \r",
+							"pm.test(\"check response body contain firstName \",function(){\r",
+							"     pm.expect(pm.response.json().firstName).to.eqls(\"Hamza\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check response body contain lastName \",function(){\r",
+							"     pm.expect(pm.response.json().lastName).to.eqls(\"Mohamed\")\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"idBook\":1\r\n  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+					"protocol": "http",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET idBook=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" \r",
+							"   \r",
+							"pm.test(\"check all returned results in response body should contain  entered idBook=1\",function(){\r",
+							"   var resBody =pm.response.json()\r",
+							"   var totalBooks= resBody.length\r",
+							"   \r",
+							"   \r",
+							"for (var i=0;i<totalBooks ; i++){\r",
+							"    console.log(resBody[i])\r",
+							"pm.expect(resBody[i].idBook).to.equal(1)\r",
+							"}\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/1",
+					"protocol": "http",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"authors",
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET idBook=2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" \r",
+							"   \r",
+							"pm.test(\"check all returned results in response body should contain  entered idBook=2\",function(){\r",
+							"   var resBody =pm.response.json()\r",
+							"   var totalBooks= resBody.length\r",
+							"   \r",
+							"   \r",
+							"for (var i=0;i<totalBooks ; i++){\r",
+							"    console.log(resBody[i])\r",
+							"pm.expect(resBody[i].idBook).to.equal(2)\r",
+							"}\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/2",
+					"protocol": "http",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"authors",
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET idBook=3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" \r",
+							"   \r",
+							"pm.test(\"check all returned results in response body should contain  entered idBook=3\",function(){\r",
+							"   var resBody =pm.response.json()\r",
+							"   var totalBooks= resBody.length\r",
+							"   \r",
+							"   \r",
+							"for (var i=0;i<totalBooks ; i++){\r",
+							"    console.log(resBody[i])\r",
+							"pm.expect(resBody[i].idBook).to.equal(3)\r",
+							"}\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/3",
+					"protocol": "http",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"authors",
+						"books",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Authors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check update data for firstname\",function(){\r",
+							"    pm.expect(pm.response.json().firstName).to.equal(\"Hamza\")\r",
+							"});\r",
+							"pm.test(\"Check update data for lastname\",function(){\r",
+							"    pm.expect(pm.response.json().lastName).to.equal(\"Gamal\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"idBook\": 0,\r\n  \"firstName\": \"Hamza\",\r\n  \"lastName\": \"Gamal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://fakerestapi.azurewebsites.net/api/v1/Authors/1",
+					"protocol": "http",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check updated data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"check all returned results in response body should contain  updated firest Name \",function(){\r",
+							"\r",
+							"   var resBody =pm.response.json()\r",
+							"   var totalAuthores= resBody.length\r",
+							"      \r",
+							"for (var i=0;i<totalAuthores ; i++){\r",
+							"    console.log(resBody[i])\r",
+							"pm.expect(resBody[i].firstName).to.equal(\"Hamza\")\r",
+							"}\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check all returned results in response body should contain  updated last Name \",function(){\r",
+							"\r",
+							"   var resBody =pm.response.json()\r",
+							"   var totalAuthores= resBody.length\r",
+							"      \r",
+							"for (var i=0;i<totalAuthores ; i++){\r",
+							"    console.log(resBody[i])\r",
+							"pm.expect(resBody[i].lastName).to.equal(\"Gamal\")\r",
+							"}\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+					"protocol": "http",
+					"host": [
+						"fakerestapi",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
