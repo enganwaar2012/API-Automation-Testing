@@ -1,0 +1,128 @@
+{
+    "id": "6368b1c98280e4066d42fe37",
+    "aaId": "6368b1c6847c699ac6513e07",
+    "activityBlocked": false,
+    "avatarHash": "ec0069c7db4eea8dda1c835785fdecc5",
+    "avatarUrl": "https://trello-members.s3.amazonaws.com/6368b1c98280e4066d42fe37/ec0069c7db4eea8dda1c835785fdecc5",
+    "bio": "",
+    "bioData": null,
+    "confirmed": true,
+    "fullName": "anwaar",
+    "idEnterprise": null,
+    "idEnterprisesDeactivated": [],
+    "idMemberReferrer": null,
+    "idPremOrgsAdmin": [],
+    "initials": "A",
+    "memberType": "normal",
+    "nonPublic": {},
+    "nonPublicAvailable": true,
+    "products": [],
+    "url": "https://trello.com/enganwaar2012",
+    "username": "enganwaar2012",
+    "status": "disconnected",
+    "aaBlockSyncUntil": null,
+    "aaEmail": null,
+    "aaEnrolledDate": null,
+    "avatarSource": "none",
+    "credentialsRemovedCount": 0,
+    "domainClaimed": null,
+    "email": "eng.anwaar2012@gmail.com",
+    "goldSunsetFreeTrialIdOrganization": null,
+    "gravatarHash": "706fa91f4c2c9968a6eef1e6aec44a33",
+    "idBoards": [
+        "636c272d83e49a005188c6ad",
+        "636c593c66cf82017e9b0700",
+        "636f34453d32aa001c6da8c2",
+        "636f4016ddf5c801810fe389"
+    ],
+    "idOrganizations": [
+        "6368b1ff3cc61300ad860db1",
+        "6368da77a700e6067be94483"
+    ],
+    "idEnterprisesAdmin": [],
+    "limits": {
+        "boards": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 4500,
+                "warnAt": 3600
+            }
+        },
+        "orgs": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 850,
+                "warnAt": 680
+            }
+        }
+    },
+    "loginTypes": [
+        "atlassian"
+    ],
+    "marketingOptIn": {
+        "optedIn": true,
+        "date": "2022-11-07T07:23:52.012Z"
+    },
+    "messagesDismissed": [],
+    "oneTimeMessagesDismissed": [
+        "sent-possible-new-signup-event",
+        "close-menu-of-first-board",
+        "team-template-picker-6368da77a700e6067be94483",
+        "6368b1ff3cc61300ad860db1-memberHomeScreenPromptFull",
+        "headerMemberMenuAddAccount"
+    ],
+    "prefs": {
+        "privacy": {
+            "fullName": "public",
+            "avatar": "public"
+        },
+        "sendSummaries": true,
+        "minutesBetweenSummaries": 60,
+        "minutesBeforeDeadlineToNotify": 1440,
+        "colorBlind": false,
+        "locale": "en-US"
+    },
+    "trophies": [],
+    "uploadedAvatarHash": null,
+    "uploadedAvatarUrl": null,
+    "premiumFeatures": [
+        "additionalBoardBackgrounds",
+        "additionalStickers",
+        "customBoardBackgrounds",
+        "customEmoji",
+        "customStickers",
+        "plugins"
+    ],
+    "isAaMastered": true,
+    "ixUpdate": "254",
+    "boards": [
+        {
+            "id": "636c272d83e49a005188c6ad",
+            "name": "taskes board",
+            "closed": false,
+            "idOrganization": "6368da77a700e6067be94483",
+            "pinned": false
+        },
+        {
+            "id": "636c593c66cf82017e9b0700",
+            "name": "taskes board",
+            "closed": false,
+            "idOrganization": "6368da77a700e6067be94483",
+            "pinned": false
+        },
+        {
+            "id": "636f34453d32aa001c6da8c2",
+            "name": "taskes board",
+            "closed": false,
+            "idOrganization": "6368da77a700e6067be94483",
+            "pinned": false
+        },
+        {
+            "id": "636f4016ddf5c801810fe389",
+            "name": "taskes board",
+            "closed": false,
+            "idOrganization": "6368da77a700e6067be94483",
+            "pinned": false
+        }
+    ]
+}

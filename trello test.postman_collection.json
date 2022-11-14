@@ -264,7 +264,7 @@
 			"response": []
 		},
 		{
-			"name": "Archive and Unarchive",
+			"name": "Archive",
 			"event": [
 				{
 					"listen": "test",
@@ -277,26 +277,22 @@
 							"pm.test(\"Check response status\",function(){\r",
 							"     pm.response.to.have.status(\"OK\");\r",
 							"});\r",
-							"\r",
-							"//Test response body\r",
-							"pm.test(\"Check response status\",function(){\r",
-							"      pm.expect(pm.response.json()._value).equal(false)\r",
+							"pm.test(\"Check response body\",function(){\r",
+							"    pm.expect(pm.response.json().closed).to.eql(true)\r",
 							"});\r",
-							"\r",
-							"//Test  response Header\r",
-							"pm.test(\"Check response Header\",function(){\r",
-							"      pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.contain(\"isEnterpriseAdmin%3Dfalse\")\r",
-							"     });"
+							"pm.test(\"check response header\",function(){\r",
+							"    pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.contain(\"EnterpriseAdmin%3Dfalse\")\r",
+							"});console.log(pm.response.headers.get(\"Set-Cookie\"))"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/lists/:{id}/closed?key={{key}}&token={{token}}",
+					"raw": "https://api.trello.com/1/lists/:{id}/closed?key={{key}}&token={{token}}&value=true",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -320,15 +316,73 @@
 						},
 						{
 							"key": "value",
-							"value": "true",
-							"description": "means Archive",
-							"disabled": true
+							"value": "true"
+						}
+					],
+					"variable": [
+						{
+							"key": "{id}",
+							"value": "{{LastListID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UnArchive",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Test response code ,status \r",
+							"pm.test(\"Check response code\",function(){\r",
+							"    pm.expect(pm.response.code).to.eql(200)\r",
+							"});\r",
+							"pm.test(\"Check response status\",function(){\r",
+							"     pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Check response body\",function(){\r",
+							"    pm.expect(pm.response.json().closed).to.eql(false)\r",
+							"});\r",
+							"pm.test(\"check response header\",function(){\r",
+							"    pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.contain(\"EnterpriseAdmin%3Dfalse\")\r",
+							"});console.log(pm.response.headers.get(\"Set-Cookie\"))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/lists/:{id}/closed?key={{key}}&token={{token}}&value=false",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"lists",
+						":{id}",
+						"closed"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
 						},
 						{
 							"key": "value",
-							"value": "false",
-							"description": "means un-archive",
-							"disabled": true
+							"value": "false"
 						}
 					],
 					"variable": [
