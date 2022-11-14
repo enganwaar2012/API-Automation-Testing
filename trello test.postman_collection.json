@@ -409,6 +409,12 @@
 							"pm.test(\"Check response status\",function(){\r",
 							"     pm.response.to.have.status(\"OK\");\r",
 							"});\r",
+							"//check response body\r",
+							"console.log(pm.response.json()._value)\r",
+							"pm.test(\"Check response body\",function(){\r",
+							"     pm.expect(pm.response.json()._value).to.contain(\"board is removed successfully\")\r",
+							"});\r",
+							"\r",
 							"\r",
 							""
 						],
